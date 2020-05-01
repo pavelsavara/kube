@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore src/kube.sln
     - name: Build
       run: dotnet build --no-restore src/kube.sln -c Release -o ./bin/PublishOutput
     - name: Test
