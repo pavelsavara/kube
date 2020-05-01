@@ -20,8 +20,8 @@ jobs:
     - name: Install dependencies
       run: dotnet restore src/kube.sln
     - name: Build
-      run: dotnet build --no-restore src/kube.sln -c Release -o ./bin/PublishOutput
+      run: dotnet build src/kube.sln --no-restore -c Release -o ./bin/PublishOutput
     - name: Test
-      run: dotnet test --no-restore --no-build --verbosity normal
+      run: dotnet test src/kube.sln --no-restore --no-build -c Release -o ./bin/PublishOutput --verbosity normal
     - name: Publish
       run: dotnet publish --no-restore --no-build src/kube.sln -c Release -o ./bin/PublishOutput
