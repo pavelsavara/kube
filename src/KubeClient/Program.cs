@@ -77,9 +77,9 @@ namespace KubeClient
         private static async Task DoClientWork(IClusterClient client)
         {
             var friend = client.GetGrain<IHello>(0);
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
-                var response = await friend.SayHello("Good morning, my friend!");
+                var response = await friend.SayHello("Good morning, my friend!!");
                 Console.WriteLine("\n\n{0}\n\n", response);
             }
         }

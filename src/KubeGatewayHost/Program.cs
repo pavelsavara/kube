@@ -46,7 +46,7 @@ namespace KubeGatewayHost
                 .UseKubeMembership(opt =>
                 {
                     //opt.APIEndpoint = "http://localhost:8001";
-                    opt.CanCreateResources = true;
+                    opt.CanCreateResources = false;
                     //opt.DropResourcesOnInit = true;
                 })
                 .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloGrain).Assembly).WithReferences())

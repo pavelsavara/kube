@@ -47,8 +47,8 @@ namespace KubeSiloHost
                     //opt.APIEndpoint = "http://localhost:8001";
                     //opt.CertificateData = "test";
                     //opt.APIToken = "test";
-                    opt.CanCreateResources = true;
-                    opt.DropResourcesOnInit = true;
+                    opt.CanCreateResources = false;
+                    //opt.DropResourcesOnInit = true;
                 })
                 .AddMemoryGrainStorageAsDefault()
                 .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloGrain).Assembly).WithReferences())
