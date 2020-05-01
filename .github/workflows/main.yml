@@ -17,11 +17,19 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-    - name: Install dependencies
-      run: dotnet restore src/kube.sln
     - name: Build
-      run: dotnet build src/kube.sln --no-restore -c Release -o ./bin/PublishOutput
+      run: dotnet publish src/kube.sln -c Release
+      
     - name: Test
-      run: dotnet test src/kube.sln --no-restore --no-build -c Release -o ./bin/PublishOutput --verbosity normal
-    - name: Publish
-      run: dotnet publish --no-restore --no-build src/kube.sln -c Release -o ./bin/PublishOutput
+      run: dotnet test src/kube.sln --verbosity normal
+
+    - name: Images
+      run: docker build -t kubesilo src/KubeClient/bin/Release/netcoreapp3.0/
+      
+    - name: Publish to Registry
+      uses: docker/build-push-action@v1
+      with:
+        repository: zamboch/kube-client
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        tag_with_ref: true
