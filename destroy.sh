@@ -1,2 +1,2 @@
-kubectl delete deployment kube-gateway
-kubectl delete deployment kube-client
+kubectl delete deployment kube-api
+kubectl delete deployment kube-silo
