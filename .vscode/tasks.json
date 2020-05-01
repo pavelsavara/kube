@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "command": "dotnet",
+  "type": "shell",
+  "args": [],
+  "tasks": [
+    {
+      "label": "build debug",
+      "args": [
+        "build",
+        "src/kube.sln",
+        "-c",
+        "Debug",
+        "-o",
+        "./bin/PublishOutput"
+      ],
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    },
+    {
+        "label": "publish debug",
+        "args": [
+          "publish",
+          "src/kube.sln",
+          "-c",
+          "Debug",
+          "-o",
+          "./bin/PublishOutput"
+        ],
+        "group": "build",
+        "problemMatcher": "$msCompile"
+      }
+    ]
+}
