@@ -1,0 +1,12 @@
+env:
+  environment: development
+
+label:
+  name: kube
+
+replicas:
+  api: 1
+  silo: 1
+
+service:
+  port: 5000

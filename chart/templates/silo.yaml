@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Release.Name }}-silo-deployment
+  namespace: kube
+  labels:
+    app: {{ .Values.label.name }}
+spec:
+  replicas: {{ .Values.replicas.silo }}
+  selector:
+    matchLabels:
+      app: {{ .Values.label.name }}-silo
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.label.name }}-silo
+        environment: {{ .Values.env.environment }}
+    spec:
+      containers:
+        - name: {{ .Values.label.name }}-silo
+          image: 'zamboch/kube-silo:latest'
+          imagePullPolicy: IfNotPresent

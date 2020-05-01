@@ -1,0 +1,27 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Release.Name }}-api-deployment
+  namespace: kube
+  labels:
+    app: {{ .Values.label.name }}
+spec:
+  replicas: {{ .Values.replicas.api }}
+  selector:
+    matchLabels:
+      app: {{ .Values.label.name }}-api
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.label.name }}-api
+        environment: {{ .Values.env.environment }}
+    spec:
+      containers:
+        - name: {{ .Values.label.name }}-api
+          image: 'zamboch/kube-api:latest'
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: environment
+              value: {{ .Values.env.environment }}
