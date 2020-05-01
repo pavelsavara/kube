@@ -17,7 +17,11 @@ public class K8Start
                 .UseLocalhostClustering()
                 .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
             : new SiloHostBuilder()
-                .UseKubeMembership(opt => { opt.CanCreateResources = false; })
+                .UseKubeMembership(opt =>
+                {
+                    opt.CanCreateResources = true;
+                    opt.DropResourcesOnInit = true;
+                })
                 .ConfigureEndpoints(new Random(1).Next(30001, 30100), new Random(1).Next(20001, 20100), listenOnAnyHostAddress: true)
             ;
 
