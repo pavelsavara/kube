@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64fb93cc-012f-4344-bbdc-6663720d7e7a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../setup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.kube/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.kube/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.kube/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.kube/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld.Grains/HelloWorld.Grains.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld.Grains/HelloWorld.Grains.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld.Interfaces/HelloWorld.Interfaces.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld.Interfaces/HelloWorld.Interfaces.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +68,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588325359677</updated>
-      <workItem from="1588325361637" duration="1470000" />
+      <workItem from="1588325361637" duration="2132000" />
     </task>
     <servers />
   </component>
