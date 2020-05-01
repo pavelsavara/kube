@@ -19,7 +19,7 @@ namespace KubeGatewayHost
             try
             {
                 var host = await StartSilo();
-                Console.WriteLine("Silo is ready!");
+                Console.WriteLine("Gateway is ready!");
 
                 Console.CancelKeyPress += OnExit;
                 Closing.WaitOne();
