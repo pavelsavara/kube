@@ -4,6 +4,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <LangVersion>latest</LangVersion>
+    <AssemblyName>KubeSilo</AssemblyName>
+    <RootNamespace>KubeSilo</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

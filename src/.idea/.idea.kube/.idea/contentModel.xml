@@ -8,7 +8,7 @@
         <e p="HelloGrain.cs" t="Include" />
         <e p="HelloWorld.Grains.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.0" t="Include">
               <e p="HelloWorld.Grains.AssemblyInfo.cs" t="Include" />
             </e>
@@ -21,7 +21,7 @@
         <e p="IHello.cs" t="Include" />
         <e p="IHelloArchive.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.0" t="Include">
               <e p="HelloWorld.Interfaces.AssemblyInfo.cs" t="Include" />
             </e>
@@ -29,27 +29,38 @@
         </e>
       </e>
       <e p="kube.sln" t="IncludeFlat" />
-      <e p="KubeClient" t="IncludeRecursive">
+      <e p="KubeApi" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="GreetingController.cs" t="Include" />
+        </e>
         <e p="Dockerfile" t="Include" />
-        <e p="KubeClient.csproj" t="IncludeRecursive" />
+        <e p="K8Start.cs" t="Include" />
+        <e p="KubeApi.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.0" t="Include">
-              <e p="KubeClient.AssemblyInfo.cs" t="Include" />
+              <e p="KubeApi.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
         <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
       </e>
-      <e p="KubeGatewayHost" t="IncludeRecursive">
+      <e p="KubeSilo" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Dockerfile" t="Include" />
-        <e p="KubeGatewayHost.csproj" t="IncludeRecursive" />
+        <e p="K8Start.cs" t="Include" />
+        <e p="KubeSilo.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.0" t="Include">
-              <e p="KubeGatewayHost.AssemblyInfo.cs" t="Include" />
+              <e p="KubeSilo.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>

@@ -23,20 +23,20 @@ jobs:
     - name: Test
       run: dotnet test src/kube.sln --verbosity normal
 
-    - name: Build and push Docker image - kube-client
+    - name: Build and push Docker image - kube-api
       uses: docker/build-push-action@v1.1.0
       with:
-        path: src/KubeClient/bin/Release/netcoreapp3.0/
-        repository: zamboch/kube-client
+        path: src/KubeApi/bin/Release/netcoreapp3.0/
+        repository: zamboch/kube-api
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         tag_with_ref: true
 
-    - name: Build and push Docker image - kube-gateway
+    - name: Build and push Docker image - kube-silo
       uses: docker/build-push-action@v1.1.0
       with:
-        path: src/KubeGatewayHost/bin/Release/netcoreapp3.0/
-        repository: zamboch/kube-gateway
+        path: src/KubeSilo/bin/Release/netcoreapp3.0/
+        repository: zamboch/kube-silo
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         tag_with_ref: true

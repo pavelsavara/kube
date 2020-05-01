@@ -10,7 +10,6 @@ kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboar
 kubectl proxy
 
 kubectl run kube-silo --image=kube-silo:latest --namespace=kube --image-pull-policy=Never
-kubectl run kube-gateway --image=kube-gateway:latest --namespace=kube --image-pull-policy=Never
-kubectl run kube-client --image=kube-client:latest --namespace=kube --image-pull-policy=Never
+kubectl run kube-api --image=kube-api:latest --namespace=kube --image-pull-policy=Never
 
 kubectl get all
