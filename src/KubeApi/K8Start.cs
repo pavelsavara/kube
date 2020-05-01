@@ -39,15 +39,18 @@ namespace KubeApi
 
         private static async Task<IClusterClient> StartClusterClient(bool local)
         {
-            var builder =
-                local ? new ClientBuilder().UseLocalhostClustering() : new ClientBuilder().UseKubeGatewayListProvider();
-            builder
+            var builder = new ClientBuilder()
                 .Configure<ClusterOptions>(options =>
                 {
-                    options.ClusterId = "greetingCluster";
-                    options.ServiceId = "greetingService";
+                    options.ClusterId = "greeting-cluster";
+                    options.ServiceId = "greeting-service";
                 })
                 .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
+                ;
+
+
+            builder = local ? builder.UseLocalhostClustering() : builder.UseKubeGatewayListProvider();
+            builder
                 .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(IHello).Assembly).WithReferences())
                 .ConfigureLogging(logging => logging.AddConsole());
 

@@ -12,22 +12,29 @@ public class K8Start
 {
     public static async Task<ISiloHost> StartKubeSilo(bool local)
     {
-        var builder = local
-            ? new SiloHostBuilder()
-                .UseLocalhostClustering()
+        var builder = new SiloHostBuilder()
+            .Configure<ClusterOptions>(options =>
+            {
+                options.ClusterId = "greeting-cluster";
+                options.ServiceId = "greeting-service";
+            })
+            .AddMemoryGrainStorageAsDefault();
+
+        
+        builder = local
+            ? builder
                 .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
-            : new SiloHostBuilder()
+                .UseLocalhostClustering()
+            : builder
+                .ConfigureEndpoints(new Random(1).Next(30001, 30100), new Random(1).Next(20001, 20100), listenOnAnyHostAddress: true)
                 .UseKubeMembership(opt =>
                 {
                     opt.CanCreateResources = true;
                     opt.DropResourcesOnInit = true;
                 })
-                .ConfigureEndpoints(new Random(1).Next(30001, 30100), new Random(1).Next(20001, 20100), listenOnAnyHostAddress: true)
             ;
 
-        builder
-            .Configure<ClusterOptions>(options => { options.ClusterId = "greetingCluster"; options.ServiceId = "greetingService"; })
-            .AddMemoryGrainStorageAsDefault()
+        builder = builder
             .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloGrain).Assembly).WithReferences())
             .ConfigureLogging(logging => logging.AddConsole());
 
